@@ -7,7 +7,8 @@ class Solution:
     def longestCommonPrefix(self, strs):
         if len(strs) == 0:
             return ""
-
+        # Find the smallest string in array because longest common prefix
+        # can not be longer then smallest string
         minlen = len(strs[0])
         for i in range(len(strs)):
             minlen = min(len(strs[i]), minlen)
