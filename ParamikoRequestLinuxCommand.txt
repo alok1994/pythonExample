@@ -1,0 +1,97 @@
+-----------------------------------------------------------------
+import paramiko
+
+command = "df"
+
+# Update the next three lines with your
+# server's information
+
+host = "139.54.126.20"
+username = "root"
+password = "Alcateldc"
+
+client = paramiko.client.SSHClient()
+client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+client.connect(host, username=username, password=password)
+_stdin, _stdout,_stderr = client.exec_command("df")
+print(_stdout.read().decode())
+client.close()
+~
+
+--------------------------------------------------------------------
+
+---------------------------------------------------------------------
+import requests
+
+from requests.auth import HTTPBasicAuth
+
+reponse = requests.get('https://google.com/username', auth=HTTPBasicAuth(username,password)
+
+reponse = requests.post('https://google.com/username', data=body, auth=HTTPBasicAuth(username, password))
+------------------------------------------------------------------------
+
+json loads -> returns an object from a string representing a json object.
+
+json dumps -> returns a string representing a json object from an object.
+
+----------------------------------------------------------------------
+headers= {'Content-Type': 'application/json', 'Accept':'application/json'}
+--------------------------------------------------------------------------
+Content-Type: application/json Indicates that the request body format is JSON.
+Accept: Sets output type to JSON.
+---------------------------------------------------------------------------------
+
+Example:
+---------------------------------------------------------------------------------
+
+import requests
+import json
+
+
+def getUsers():
+    headers = {'Content-Type': 'application/json','Accept':'application/json'}
+    output = requests.get('https://jsonplaceholder.typicode.com/users', headers=headers)
+    if output.status_code == 200:
+        print(output.status_code)
+        print(json.loads(output.content))
+
+
+getUsers()
+---------------------------------------------------------------------------------------
+
+
+
+chown newonwer filename
+
+chmod 777: Everything for everyone
+----------------------------------------------------
+You might have heard of chmod 777. This command will give read, write and execute permission to the owner, group and public.
+
+If you want to change the mode to 777, you can use the command like this:
+
+chmod 777 filename
+
+
+chmod 755: Only owner can write, read and execute for everyone
+---------------------------------------------------------------------
+This next command will set the following permission on file: rwxr-xr-x. Only the owner will be allowed to write to the file. 
+Owner, group members and everyone else will have read and execute permission.
+
+
+
+chmod 700: Everything for owner only
+--------------------------------------------
+This command will give read, write and execute permission to the owner. Group and others will have no permissions, not even read.
+
+
+chmod 666: No one executes
+-----------------------------------
+To give owner, group and everyone else read and write permission on file.
+
+chmod -c 666 /path/to/file
+
+chmod 600: Owner can read and write, nothing else for anyone
+-----------------------------------------------------------
+With this next one, owner will have read and write while group and everyone else will have no permissions whatsoever.
+
+chmod 600 /path/to/file
