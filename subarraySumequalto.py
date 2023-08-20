@@ -16,6 +16,7 @@ class Solution:
                 sumDict[s] += 1
             else:
                 sumDict[s] = 1
+        print(sumDict)
         return count
 
 nums = [3,4,7,2,-3,1,4,2,1]

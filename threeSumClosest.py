@@ -20,7 +20,6 @@ class Solution:
             right = len(nums) -1
             while left < right :
                 sumhere = nums[i] + nums[left] + nums[right]
-                import pdb;pdb.set_trace()
                 if abs(sumhere - target) < abs(res - target):
                     res = sumhere
                 if sumhere < target:
